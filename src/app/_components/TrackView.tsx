@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
@@ -7,7 +6,7 @@ import { motion } from "framer-motion";
 import { getData } from "../_lib/queryFns/getData";
 import TrackGrid from "./TrackGrid";
 import { Songs } from "../_lib/types/songs-interface";
-import Loading from "./loading";
+import Loading from "./Loading";
 
 // TODO: fix types
 const TrackView = (props: { posts: any }) => {
@@ -44,17 +43,21 @@ const TrackView = (props: { posts: any }) => {
 
   return (
     <div className="max-w-[100rem] me-auto ms-auto ps-5 pe-5 sm:ps-7 sm:pe-7 lg:ps-10 lg:pe-10">
-      <div className="flex h-[170px] justify-center items-center">
-        {/* TODO: animate in underline from left */}
+      <div className="flex flex-col h-[170px] justify-center items-center">
         <motion.input
           type="text"
-          className="appearance-none bg-transparent border-b-2 border-white w-[90%] py-4 text-[20px] sm:text-[28px] text-white focus:outline-none transition-all hover:placeholder:text-white"
+          className="appearance-none bg-transparent w-[90%] py-4 text-[20px] sm:text-[28px] text-white focus:outline-none transition-all hover:placeholder:text-white"
           placeholder="filter on artist or track"
           value={query}
           onChange={handleChange}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
+        />
+        <motion.span className="w-0 left-0 block h-[1px] bg-white" 
+          initial={{ width: 0 }}
+          animate={{ width: "90%" }}
+          transition={{ duration: 0.4, delay: 0.5 }}
         />
       </div>
       <TrackGrid props={filtered} />

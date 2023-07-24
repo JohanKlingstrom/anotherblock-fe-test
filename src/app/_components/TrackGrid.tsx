@@ -1,32 +1,34 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { motion } from "framer-motion";
 import { Songs } from "../_lib/types/songs-interface";
+import Image from "next/image";
 
 const TrackGrid = ({ props }: any) => {
   return (
     <div className="item-grid">
       {props.map(
         (
-          { id, image, track, artist, streams: { total, monthly } }: Songs,
-          index: number
+          { id, image, track, artist, streams: { total, monthly } }: Songs
         ) => (
-          //TODO: add hover animation
           <motion.div
             key={id}
             className="card w-full aspect-square flex flex-col items-center justify-center bg-cover"
             style={{ backgroundImage: `url(${image})` }}
             initial={{ opacity: 0, translateY: 25 }}
             animate={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: 0.5 }}
             layout
           >
-            <div className="w-full h-full flex  justify-center items-center backdrop-blur-md">
+            <div className="w-full h-full flex  justify-center items-center backdrop-blur-md hover:bg-[#ffffff1c] transition-colors">
               <div className="flex flex-col max-w-[70%] sm:max-w-[60%] lg:max-w-[50%] mt-[0.8rem]">
-                <img
+                <Image
                   src={image}
-                  alt={"cover for " + track}
-                  className="w-full aspect-square object-cover"
+                  alt={track}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: '100%', height: 'auto' }}
+                  loading="lazy"
                 />
                 <div className="mt-1 sm:mt-2 flex justify-between min-h-[4rem]">
                   <div className="font-medium text-white">
