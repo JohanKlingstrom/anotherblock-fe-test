@@ -5,13 +5,12 @@ import { SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
 import { getData } from "../_lib/queryFns/getData";
 import TrackGrid from "./TrackGrid";
-import { Songs } from "../_lib/types/songs-interface";
+import { Songs } from "../_lib/songs-interface";
 import Loading from "./Loading";
 
-// TODO: fix types
 const TrackView = (props: { posts: any }) => {
   const [query, setQuery] = useState("");
-  let filtered!: any[];
+  let filtered;
 
   const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
     setQuery(e.target.value);

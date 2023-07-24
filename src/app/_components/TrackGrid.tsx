@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Songs } from "../_lib/types/songs-interface";
 import Image from "next/image";
+import { Songs } from "../_lib/songs-interface";
 
 const TrackGrid = ({ props }: any) => {
   return (
