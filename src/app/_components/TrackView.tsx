@@ -8,9 +8,9 @@ import TrackGrid from "./TrackGrid";
 import { Songs } from "../_lib/songs-interface";
 import Loading from "./Loading";
 
-const TrackView = (props: { posts: any }) => {
+const TrackView = (props: { props: any }) => {
   const [query, setQuery] = useState("");
-  let filtered;
+  let filtered: Songs[];
 
   const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
     setQuery(e.target.value);
@@ -28,7 +28,7 @@ const TrackView = (props: { posts: any }) => {
   const { data, isLoading } = useQuery<Songs[]>({
     queryKey: ["tracks"],
     queryFn: getData,
-    initialData: props.posts,
+    initialData: props.props,
     keepPreviousData: true,
   });
 
@@ -59,7 +59,7 @@ const TrackView = (props: { posts: any }) => {
           transition={{ duration: 0.4, delay: 0.5 }}
         />
       </div>
-      <TrackGrid props={filtered} />
+      <TrackGrid props={filtered!} />
     </div>
   );
 };
