@@ -1,9 +1,9 @@
 # anotherblock frontend test
 
 ## requirements
-* fetch data with react-query from [https://cdn.anotherblock.io/mock-data.json](https://cdn.anotherblock.io/mock-data.json)
-* implement design from [figma](https://www.figma.com/file/cBZjzlR9HCbM4wMIdiiEJc/Untitled?type=design&node-id=0%3A1&mode=design&t=B7lLhW9OJF4xPGbN-1) using tailwind. its the 4th element that is larger 
-* implement a search filter that filters on either the artist or the track
+- [x] fetch data with react-query from [https://cdn.anotherblock.io/mock-data.json](https://cdn.anotherblock.io/mock-data.json)
+- [x] implement design from [figma](https://www.figma.com/file/cBZjzlR9HCbM4wMIdiiEJc/Untitled?type=design&node-id=0%3A1&mode=design&t=B7lLhW9OJF4xPGbN-1) using tailwind. its the 4th element that is larger 
+- [x] implement a search filter that filters on either the artist or the track
 
 ## extra 
 We see the requirements as crucial but if you feel free to add anything extra if you feel like it. Some topics we tackle in our day-to-day work

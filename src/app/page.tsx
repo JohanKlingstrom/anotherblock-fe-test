@@ -1,36 +1,15 @@
-"use client";
+import { getData } from "../lib/queryFns/getData";
+import Posts from "./Posts";
 
-import { useQuery } from "@tanstack/react-query";
-
-interface Songs {
-  id: number;
-  artist: string;
-  track: string;
-  imageUrl: string;
-  videoUrl: string;
-  streams: {
-    monthly: number;
-    total: number;
-  }
-}
-
-export default function Home() {
-  const { data, isLoading } = useQuery<Songs[]>({
-    queryKey: ["tracks"],
-    queryFn: () => fetch("https://cdn.anotherblock.io/mock-data.json").then((res) => res.json())
-  })
-
-  if(isLoading || !data) return <div>Loading...</div>;
-
+export default async function Home() {
+  const initialData = await getData();
   return (
-    <div className="bg-black h-screen flex flex-col justify-center items-center">
-      <img src="https://cdn.anotherblock.io/logo.png" alt="logo" />
-      {data.map((song) => (
-        <div key={song.id} className="mb-2 text-center">
-          <h2 className="text-white">{song.artist}</h2>
-          <p className="text-white">{song.track}</p>
-        </div>
-      ))}
-    </div>
+    <main>
+      <Posts posts={initialData} />
+      <footer className="my-20 flex gap-5 justify-center text-white opacity-50 font-light">
+        <span>anotherblock code test</span>
+        <span>johan klingström 2023</span>
+      </footer>
+    </main>
   );
 }

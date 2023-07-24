@@ -6,6 +6,11 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      'sm': '411px',
+      'md': '960px',
+      'lg': '1440px',
+    },
     extend: {
       fontFamily: {
         sans: ['"Aeonik"'],
