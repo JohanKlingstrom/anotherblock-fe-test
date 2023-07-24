@@ -2,23 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* build in Tailwind */
-.product-grid {
+/* track grid helper */
+.item-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
 }
 
 @media (min-width: 45em) {
-  .product-grid {
+  .item-grid {
     grid-template-columns: 1fr 1fr;
     gap: 0px;
   }
 }
 
 @media (min-width: 60em) {
-  .product-grid {
+  .item-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
   .card:nth-of-type(4) {

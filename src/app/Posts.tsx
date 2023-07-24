@@ -75,8 +75,8 @@ const Posts = (props: { posts: any }) => {
         />
       </div>
 
-      {/* Product Grid */}
-      <div className="product-grid">
+      {/* Item Grid */}
+      <div className="item-grid">
         {filtered.map(
           (
             { id, image, track, artist, streams: { total, monthly } },
@@ -99,12 +99,12 @@ const Posts = (props: { posts: any }) => {
                     alt={"cover for " + track}
                     className="w-full aspect-square object-cover"
                   />
-                  <div className="mt-2 flex justify-between min-h-[4rem]">
+                  <div className="mt-1 sm:mt-2 flex justify-between min-h-[4rem]">
                     <div className="font-medium text-white">
-                      <h2 className="text-[11px] sm:text-[14px] uppercase">
+                      <h2 className="text-[10px] sm:text-[12px]  md:text-[14px] uppercase">
                         {track}
                       </h2>
-                      <h3 className="text-[8px] sm:text-[11px] uppercase">
+                      <h3 className="text-[8px] sm:text-[10px] md:text-[11px] uppercase">
                         {"/" +
                           (artist.length < 30
                             ? artist
