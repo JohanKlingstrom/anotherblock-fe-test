@@ -5,7 +5,7 @@ import { SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
 import { getData } from "../_lib/queryFns/getData";
 import TrackGrid from "./TrackGrid";
-import { Songs } from "../_lib/songs-interface";
+import { Songs } from "../_lib/interface/songs-interface";
 import Loading from "./Loading";
 import { searchFilter } from "../_lib/helpers/searchFilter";
 
@@ -20,14 +20,13 @@ const TrackView = ({props}: any) => {
   const { data, isLoading } = useQuery<Songs[]>({
     queryKey: ["tracks"],
     queryFn: getData,
-    initialData: props.props,
+    initialData: props,
     keepPreviousData: true,
   });
 
   if (data) {
     filtered = searchFilter(data, query);
   }
-
 
   if (isLoading || !data) {
     return <Loading />;
@@ -47,7 +46,8 @@ const TrackView = ({props}: any) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         />
-        <motion.span className="w-0 left-0 block h-[1px] bg-white" 
+        <motion.span
+          className="w-0 left-0 block h-[1px] bg-white"
           initial={{ width: 0 }}
           animate={{ width: "90%" }}
           transition={{ duration: 0.4, delay: 0.5 }}

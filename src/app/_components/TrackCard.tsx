@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Songs } from "../_lib/songs-interface";
+import { Songs } from "../_lib/interface/songs-interface";
 
 const TrackCard: FC<Songs> = ({ artist, track, image, streams: { monthly, total } }) => {
   return (
