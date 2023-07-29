@@ -1,17 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Songs } from "../_lib/interface/songs-interface";
+import { Tracks, TrackProps } from "../_lib/interface/trackInterfaces";
 import TrackCard from "./TrackCard";
 
-const TrackGrid = ({ props }: any) => {
-
+const TrackGrid = ({ props }: TrackProps) => {
   return (
     <motion.div 
       className="item-grid"
       layout
     >
       {props.map(
-        (track: Songs) => (
+        (track: Tracks) => (
           <TrackCard key={track.id} {...track} />
         )
       )}

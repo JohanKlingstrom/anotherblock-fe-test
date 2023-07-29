@@ -1,6 +1,6 @@
 import { getData } from "./_lib/queryFns/getData";
 import TrackView from "./_components/TrackView";
-import { Songs } from "./_lib/interface/songs-interface";
+import { Songs } from "./_lib/interface/trackInterfaces";
 
 export default async function Home() {
   const initialData: Songs[] = await getData();

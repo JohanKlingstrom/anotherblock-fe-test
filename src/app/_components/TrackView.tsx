@@ -5,19 +5,19 @@ import { SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
 import { getData } from "../_lib/queryFns/getData";
 import TrackGrid from "./TrackGrid";
-import { Songs } from "../_lib/interface/songs-interface";
+import { Tracks, TrackProps } from "../_lib/interface/trackInterfaces";
 import Loading from "./Loading";
 import { searchFilter } from "../_lib/helpers/searchFilter";
 
-const TrackView = ({props}: any) => {
+const TrackView = ({props}: TrackProps) => {
   const [query, setQuery] = useState("");
-  let filtered: Songs[];
+  let filtered: Tracks[];
 
   const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
     setQuery(e.target.value);
   };
 
-  const { data, isLoading } = useQuery<Songs[]>({
+  const { data, isLoading } = useQuery<Tracks[]>({
     queryKey: ["tracks"],
     queryFn: getData,
     initialData: props,

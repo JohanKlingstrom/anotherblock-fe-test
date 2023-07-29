@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Songs } from "../_lib/interface/songs-interface";
+import { Tracks } from "../_lib/interface/trackInterfaces";
 
-const TrackCard: FC<Songs> = ({ artist, track, image, streams: { monthly, total } }) => {
+const TrackCard: FC<Tracks> = ({ artist, track, image, streams: { monthly, total } }) => {
   return (
     <motion.div
       className="card w-full aspect-square flex flex-col items-center justify-center bg-cover"
