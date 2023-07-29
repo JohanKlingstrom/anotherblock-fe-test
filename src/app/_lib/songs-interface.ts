@@ -3,7 +3,7 @@ export interface Songs {
     artist: string;
     track: string;
     image: string;
-    video: string;
+    video?: string;
     streams: {
       monthly: number;
       total: number;
